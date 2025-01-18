@@ -28,13 +28,7 @@ foreach (var subdir in mainPathDirs)
 Console.WriteLine();
 
 
-IEnumerable<string> GetDirsContent(string name)
-{
-    return Directory.EnumerateDirectories(name);
-}
+IEnumerable<string> GetDirsContent(string name) => Directory.EnumerateDirectories(name);
+bool IsDirBlacklisted(string dirName) =>  blackList.Any(path => dirName.Contains(path));
 
-bool IsDirBlacklisted(string dirName)
-{
-    return blackList.Any(path => dirName.Contains(path));
-}
 
